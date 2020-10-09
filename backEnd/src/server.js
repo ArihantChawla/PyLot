@@ -213,7 +213,7 @@ async function sshInit(username, password, host, res) {
     log += "\nPyLot connected to user's remote server\n";
     conn.exec("ls", (err, stream) => {
       if (err) {
-        log+="\nCommand execution failed\n"
+        log += "\nCommand execution failed\n";
       }
       stream.stdout.on("data", (data) => {
         log += `\n***\n STDOUT : \n${data.toString()}\n***`;
@@ -231,9 +231,9 @@ async function sshInit(username, password, host, res) {
     log += "\nDisconnected to server.\n";
     res.send(`\nLog:\n${log}`);
   });
-  conn.on("error",()=>{
-    log+="\nConnection error.\n";
-  })
+  conn.on("error", () => {
+    log += "\nConnection error.\n";
+  });
   conn.connect(connectionDetails);
 }
 //================================================================================================================================================================================
@@ -249,7 +249,7 @@ mongoose
 //================================================================================================================================================================================
 //~ STARTTING NODE JS SERVER AND SETTING TO LISTEN ON PORT
 //================================================================================================================================================================================
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`listening on port ... ${port}`);
 });
 //================================================================================================================================================================================
